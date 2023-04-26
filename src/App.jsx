@@ -25,8 +25,8 @@ function App() {
   return <>
 
     <NewTodoForm setTodos={setTodos} />
-    <h1 className="header">Todo List</h1>
-    <ul className="list">
+    <h1>Todo List</h1>
+    <ul>
       {todos.length === 0 && "No Todos"}
       {todos.map(todo => {
         return (
@@ -38,9 +38,7 @@ function App() {
                 onChange={e => toggleTodo(todo.id, e.target.value)}/>
               {todo.title}
             </label>
-            <button 
-              onClick={() => deleteTodo(todo.id)} 
-              className="btn btn-danger">Delete</button>
+            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           </li>
         )
       })}
