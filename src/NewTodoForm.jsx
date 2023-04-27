@@ -15,17 +15,18 @@ export function NewTodoForm( {setTodos} ) {
   }
   
   return <>
-    <form onSubmit={handleSubmit} className="new-item-form">
-      <div className="form-row">
+    <form onSubmit={handleSubmit} className="flex">
+      <div>
         <label htmlFor="item">New Item:</label>
         <input 
         value={newItem}
         onChange={e => {setNewItem(e.target.value)}}
         type="text"
         id="item"
+        className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10 focus:outline-none focus:ring focus:ring-red-600/10"
         />
       </div>
-      <button className="btn">Add</button>
+      <button className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Add Item</button>
     </form>
   </>
 }

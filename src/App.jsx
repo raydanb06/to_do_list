@@ -4,11 +4,11 @@ import { NewTodoForm } from "./NewTodoForm";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  function toggleTodo(id, completed) {
+  function toggleTodo(id) {
     setTodos(currentTodos => {
       return currentTodos.map(todo => {
         if (todo.id === id) {
-          return { ...todo, completed }
+          return { ...todo, completed: !todo.completed }
         }
 
         return todo;
@@ -22,10 +22,14 @@ function App() {
     })
   }
 
+  const completedTodos = todos.filter(todo => todo.completed);
+  const incompleteTodos = todos.filter(todo => !todo.completed);
+
   return <>
 
     <NewTodoForm setTodos={setTodos} />
-    <h1>Todo List</h1>
+
+    <h1 className="text-xl">Todo List</h1>
     <ul>
       {todos.length === 0 && "No Todos"}
       {todos.map(todo => {
@@ -35,7 +39,7 @@ function App() {
               <input 
                 type="checkbox" 
                 checked={todo.completed} 
-                onChange={e => toggleTodo(todo.id, e.target.value)}/>
+                onChange={e => toggleTodo(todo.id)}/>
               {todo.title}
             </label>
             <button onClick={() => deleteTodo(todo.id)}>Delete</button>
@@ -43,6 +47,43 @@ function App() {
         )
       })}
     </ul>
+
+    <h1 className="text-xl">Completed Todo's</h1>
+    <ol>
+      {completedTodos.map(todo => {
+        return (
+          <li key={todo.id}>
+          <label>
+            <input 
+              type="checkbox" 
+              checked={todo.completed} 
+              onChange={e => toggleTodo(todo.id)}/>
+            {todo.title}
+          </label>
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          </li>
+        )
+      })}
+    </ol>
+
+    <h1 className="text-xl">Incomplete Todo's</h1>
+    <ol>
+      {incompleteTodos.map(todo => {
+        return (
+          <li key={todo.id}>
+          <label>
+            <input 
+              type="checkbox" 
+              checked={todo.completed} 
+              onChange={e => toggleTodo(todo.id)}/>
+            {todo.title}
+          </label>
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          </li>
+        )
+      })}
+    </ol>
+
   </>
 
 }
