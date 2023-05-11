@@ -1,16 +1,4 @@
-export function TodoList({ todos, setTodos, deleteTodo }) {
-
-  function toggleTodo(id) {
-    setTodos(currentTodos => {
-      return currentTodos.map(todo => {
-        if (todo.id === id) {
-          return { ...todo, completed : !todo.completed }
-        }
-
-        return todo;
-      })
-    })
-  }
+export function TodoList({ todos, toggleTodo, deleteTodo }) {
 
   return <>
     <h1 className="text-xl">Todo List</h1>
