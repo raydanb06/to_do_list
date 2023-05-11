@@ -2,7 +2,7 @@ export function CompletedTodos({ todos, toggleTodo, deleteTodo }) {
 
   const completedTodos = todos.filter(todo => todo.completed);
 
-  return <>
+  return <div>
     <h1 className="text-xl">Completed Todo's</h1>
     <ol>
       {completedTodos.map(todo => {
@@ -20,5 +20,5 @@ export function CompletedTodos({ todos, toggleTodo, deleteTodo }) {
         )
       })}
     </ol>
-  </>
+  </div>
 }

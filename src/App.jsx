@@ -27,9 +27,11 @@ function App() {
 
   return <>
 
-    <NewTodoForm setTodos={setTodos} />
+    <NewTodoForm 
+      setTodos={setTodos}
+    />
 
-    <div className="display-flex flex-row-reverse">
+    <div className="flex justify-evenly">
       <TodoList
         todos={todos}
         deleteTodo={deleteTodo}

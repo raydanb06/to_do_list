@@ -1,6 +1,6 @@
 export function TodoList({ todos, toggleTodo, deleteTodo }) {
 
-  return <>
+  return <div>
     <h1 className="text-xl">Todo List</h1>
     <ul>
       {todos.length === 0 && "No Todos"}
@@ -19,5 +19,5 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
         )
       })}
     </ul>
-  </>
+  </div>
 }

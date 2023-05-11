@@ -2,7 +2,7 @@ export function IncompleteTodos({ todos, toggleTodo, deleteTodo }) {
 
   const incompleteTodos = todos.filter(todo => !todo.completed);
 
-  return <>
+  return <div>
     <h1 className="text-xl">Incomplete Todo's</h1>
     <ol>
       {incompleteTodos.map(todo => {
@@ -20,5 +20,5 @@ export function IncompleteTodos({ todos, toggleTodo, deleteTodo }) {
         )
       })}
     </ol>
-  </>
+  </div>
 }

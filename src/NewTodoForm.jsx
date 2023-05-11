@@ -15,7 +15,7 @@ export function NewTodoForm( {setTodos} ) {
   }
   
   return <>
-    <form onSubmit={handleSubmit} className="flex">
+    <form onSubmit={handleSubmit} className="flex justify-center">
       <div>
         <label htmlFor="item">New Item:</label>
         <input 
