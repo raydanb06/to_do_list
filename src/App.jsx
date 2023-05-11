@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { NewTodoForm } from "./NewTodoForm";
 import { TodoList } from "./TodoList";
 import { CompletedTodos } from "./CompletedTodos";
 import { IncompleteTodos } from "./IncompleteTodos";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS");
+    if (localValue == null) return [];
+
+    return JSON.parse(localValue);
+  });
 
   function toggleTodo(id) {
     setTodos(currentTodos => {
@@ -24,6 +29,10 @@ function App() {
       return currentTodos.filter(todo => todo.id !== id)
     })
   }
+
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(todos))
+  }, [todos]);
 
   return <>
 
